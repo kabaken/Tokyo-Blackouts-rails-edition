@@ -1,10 +1,12 @@
 Ext.ns('BO');
 
 BO.Source = Ext.extend(Ext.Panel, {
-  itemTpl: '<div class="bodetail"><span class="pref">{pref}</span><br><a href="{url}" target="_blank" class="url">{url}</a><br><span class="update">最終更新日：{update:date("Y/m/d")}</span></div>',
+  viewTpl: '<div><tpl for="."><div class="bodetail"><a href="{url}" target="_blank" class="url">{pref}</a><br><span class="update">最終更新日：{update:date("Y/m/d")}</span></div></tpl></div>',
+
+  viewSelector: 'div.bodetail',
 
   initComponent: function(){
-		this.layout = 'fit';
+    this.layout = 'fit';
 
     this.dockedItems = [{
       dock: 'top',
@@ -12,27 +14,15 @@ BO.Source = Ext.extend(Ext.Panel, {
       title: '情報源'
     }];
 
-		this.items = [{
-			xtype: 'list',
-			itemTpl: this.itemTpl,
-			store: this.store
-		}];
+    this.items = [{
+      xtype: 'dataview',
+      tpl: this.viewTpl,
+      itemSelector: this.viewSelector,
+      store: this.store
+    }];
 
     BO.Source.superclass.initComponent.call(this);
-
-		this.list = this.down('list');
-	/*
-		this.list.on({
-			itemtap: this.onItemTap,
-			scope: this
-		});
-	*/
-  },
-
-	onItemTap: function(t,idx,itm,e){
-		var store = this.store, rec = store.getAt(idx);
-		window.location = rec.get('url');
-	}
+  }
 });
 
 Ext.reg('bosource',BO.Source);
