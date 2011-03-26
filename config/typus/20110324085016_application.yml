@@ -1,0 +1,16 @@
+# Typus Models Configuration File
+#
+# Use the README file as a reference to customize settings.
+
+AddressGroup:
+  fields:
+    default: pref, address, group_number, group_code
+    form: pref, address, group_number, group_code
+    options:
+      selectors: group_number, group_code
+  order_by: 
+  relationships: 
+  filters: group_number, group_code
+  search: pref, address
+  application: tb
+
