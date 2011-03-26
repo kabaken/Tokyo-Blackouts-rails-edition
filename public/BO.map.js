@@ -313,7 +313,7 @@ BO.Map = Ext.extend(Ext.form.FormPanel,{
     var ggl = window.google.maps, map = this.map.map, marker = this.marker, iw = this.getInfoWindow(marker), content;
     
     Ext.Ajax.request({
-      url: 'search.php',
+      url: 'search.json',
       params: {
         query: Ext.encode(q)
       },
