@@ -1,0 +1,15 @@
+Quick Start
+
+Init sqlite3 DB
+> rake db:migrate
+
+Pull data from www.tepco.co.jp
+> rails runner 'AddressGroup::refresh'
+
+Start Server
+> rails s
+
+top - http://localhost:3000/
+admin - http://localhost:3000/admin/
+
+That's it!
