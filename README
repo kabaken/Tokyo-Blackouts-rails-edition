@@ -10,6 +10,13 @@ Init sqlite3 DB
 Pull data from www.tepco.co.jp
 > rails runner 'AddressGroup::refresh'
 
+You need to download Sencha Touch from http://www.sencha.com/products/touch/download/
+Then unzip them to /public as /public/sencha-touch
+
+> cd public
+> unzip where/ever/sencha-touch-1.*.*.zip
+> mv sencha-touch-1.*.* sencha-touch
+
 Start Server
 > rails s
 
