@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110324072201) do
+ActiveRecord::Schema.define(:version => 20110327021650) do
 
   create_table "address_groups", :force => true do |t|
     t.string  "pref"
@@ -20,5 +20,18 @@ ActiveRecord::Schema.define(:version => 20110324072201) do
   end
 
   add_index "address_groups", ["address"], :name => "index_address_groups_on_address"
+
+  create_table "schedules", :force => true do |t|
+    t.date     "effect_at"
+    t.integer  "group_number"
+    t.string   "group_code"
+    t.integer  "state_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "states", :force => true do |t|
+    t.string "label"
+  end
 
 end

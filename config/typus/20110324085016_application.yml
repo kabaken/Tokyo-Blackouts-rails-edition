@@ -12,5 +12,5 @@ AddressGroup:
   relationships: 
   filters: group_number, group_code
   search: pref, address
-  application: tb
+  application: TokyoBlackouts
 

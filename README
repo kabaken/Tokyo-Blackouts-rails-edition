@@ -5,6 +5,7 @@ Get gems
 
 Init sqlite3 DB
 > rake db:migrate
+> rake db:seed
 
 Pull data from www.tepco.co.jp
 > rails runner 'AddressGroup::refresh'

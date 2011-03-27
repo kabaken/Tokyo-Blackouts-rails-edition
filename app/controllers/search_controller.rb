@@ -1,8 +1,8 @@
 class SearchController < ApplicationController
 	def search
 		res = {:address => '', :group => 0, :code => ''}
-		querys = ActiveSupport::JSON.decode(params[:query])
-		querys.each do |query|
+		queries = ActiveSupport::JSON.decode(params[:query])
+		queries.each do |query|
 			adds = AddressGroup.find_all_by_address(query)
 			unless(adds.blank?)
 				groups = []
