@@ -34,4 +34,12 @@ class AddressGroup < ActiveRecord::Base
 			end
 		end
 	end
+
+	def schedules
+		res = []
+		Schedule.where(:group_number => group_number, :group_code => group_code).includes(:state).each do |s|
+			res << {:effect_at => s.effect_at, :state => s.state.label}
+		end
+		res
+	end
 end
