@@ -2,22 +2,108 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+		<meta name="Keywords" content="停電チェッカー,計画停電,GPS,グループ,25区,グループ分,グループ分け,細分化,iPhone,Android,東京電力" />
+		<meta name="Description" content="【停電チェッカー】現在位置から停電グループとその日の時間帯を表示します。25区はもちろん、住所や駅名、郵便番号でも検索可能。また、次回同じ場所の情報を見ることが出来るように詳細画面の保存ボタンで場所の保存が出来ます。iPhone/Android、Safari/Chromeに対応" />
+
     <title>計画停電GPS</title>
-    <link rel="stylesheet" href="/sencha-touch/resources/css/sencha-touch.css" type="text/css">
+    <link rel="stylesheet" href="/sencha-touch/resources/css/sencha-touch.css?20110326" type="text/css">
     <link rel="stylesheet" href="./css/styles.css?201103220049" type="text/css">
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&language=ja"></script>
-    <script type="text/javascript" src="/sencha-touch/sencha-touch.js"></script>
-		<!--
-    <script type="text/javascript" src="BO.data.js?20110321"></script>
-    <script type="text/javascript" src="BO.map.js?20110321"></script>
-    <script type="text/javascript" src="BO.info.js?20110321"></script>
-    <script type="text/javascript" src="BO.source.js?20110321"></script>
-    <script type="text/javascript" src="BO.notice.js?20110321"></script>
-    <script type="text/javascript" src="BO.js?20110321"></script>
-    <script type="text/javascript" src="app.js?20110321"></script>
-		-->
-    <script type="text/javascript" src="tokyoblackouts.js?20110322"></script>
-  </head>
-  <body>
+	<style>
+	#AN-sObj-stage {
+	 position: relative;
+	 overflow:hidden;
+	 -webkit-perspective: 600;
+	 top: 33%;
+	 left: 33%;
+	 }
+	 #AN-sObj-stage div { position: absolute; }
+	 #AN-sObj-stage a {color: inherit; text-decoration:none;}
+	 #AN-sObj-stage * {margin:0; padding:0;-webkit-transform-style:preserve-3d;}
+	 body,#AN-sObj-stage {margin:0; padding:0;}
+	#AN-sObj-stage{ width: 300px;
+	height: 300px;
+	border-color: black;
+	 }
+	#AN-sObj-1{ top: 64px;
+	left: 14px;
+	 }
+	#AN-sObj-2{ width: 100px;
+	height: 100px;
+	top: -29px;
+	left: -6px;
+	 }
+	#AN-sObj-3{ -webkit-transform: scale3d(0.6, 0.6, 1);
+	
+	width: 210px;
+	height: 210px;
+	top: 27px;
+	left: 50px;
+	-webkit-animation-iteration-count: 100;
+	 }
+	#AN-sObj-4{ top: 215px;
+	left: 97px;
+	-webkit-animation-iteration-count: 100;
+	font-size: 36px;
+	 }
+	
+	@-webkit-keyframes AN-ani-0 {
+	 0% {
+		-webkit-transform: scale3d(0.6, 0.6, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+	
+	-webkit-animation-timing-function: linear;
+	 }
+	 50% {
+		-webkit-transform: scale3d(0.6, 0.6, 1) rotateX(0deg) rotateY(0deg) rotateZ(360deg);
+	
+	-webkit-animation-timing-function: linear;
+	 }
+	 100% {
+		-webkit-transform: scale3d(0.6, 0.6, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+	
+	-webkit-animation-timing-function: linear;
+	 }
+	}
+	
+	@-webkit-keyframes AN-ani-1 {
+	 0% {
+		opacity: 0;
+	-webkit-animation-timing-function: linear;
+	 }
+	 25% {
+		opacity: 1;
+	-webkit-animation-timing-function: linear;
+	 }
+	 50% {
+		opacity: 0;
+	-webkit-animation-timing-function: linear;
+	 }
+	 75% {
+		opacity: 1;
+	-webkit-animation-timing-function: linear;
+	 }
+	 100% {
+		opacity: 0;
+	-webkit-animation-timing-function: linear;
+	 }
+	}
+	</style>
+</head>
+<body>
+	<div id="AN-sObj-stage"><div class="AN-Object" id="AN-sObj-3" style="-webkit-transform: scale3d(0.6, 0.6, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg); -webkit-animation-timing-function: linear; -webkit-animation-name: AN-ani-0; -webkit-animation-duration: 5s; "><div id="AN-sObj-val-3"><img src="cog3.png"></div></div><div id="AN-sObj-4" class="AN-Object" style="opacity: 0; -webkit-animation-timing-function: linear; -webkit-animation-name: AN-ani-1; -webkit-animation-duration: 5s; "><span id="AN-sObj-val-4">Loading...</span></div></div>
+
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&language=ja"></script>
+  <script type="text/javascript" src="/sencha-touch/sencha-touch.js?20110326"></script>
+
+  <script type="text/javascript" src="BO.mylocation.js?20110321"></script>
+  <script type="text/javascript" src="BO.data.js?20110321"></script>
+  <script type="text/javascript" src="BO.map.js?20110321"></script>
+  <script type="text/javascript" src="BO.info.js?20110321"></script>
+  <script type="text/javascript" src="BO.source.js?20110321"></script>
+  <script type="text/javascript" src="BO.notice.js?20110321"></script>
+  <script type="text/javascript" src="BO.js?20110321"></script>
+  <script type="text/javascript" src="app.js?20110321"></script>
+  <!--
+  <script type="text/javascript" src="tokyoblackouts.js?201103272352"></script>
+  -->
   </body>
 </html>

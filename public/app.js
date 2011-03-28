@@ -17,9 +17,14 @@
 */
 
 // スマートフォンサイトの稼働
+Ext.get('AN-sObj-stage').setStyle({
+	visibility: 'hidden'
+});
+
 Ext.setup({
   fullscreen: true,
   icon: 'icon.png',
+	phoneStartupScreen: 'ps.png',
   onReady: function(){
     new BO.App();
   }
