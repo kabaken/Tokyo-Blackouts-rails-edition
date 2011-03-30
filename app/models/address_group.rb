@@ -2,6 +2,8 @@ class AddressGroup < ActiveRecord::Base
 	require 'spreadsheet'
   require 'open-uri'
 
+	has_many :schedule_members, :finder_sql => 'SELECT * FROM schedule_members WHERE group_number = #{group_number} AND group_code = "#{group_code}"'
+
 	GROUP_NUMBER = [1, 2, 3, 4, 5]
   validates_inclusion_of :group_number, :in => GROUP_NUMBER
 	GROUP_CODE = %w[A B C D E]
@@ -20,7 +22,7 @@ class AddressGroup < ActiveRecord::Base
 			end
 			p url
 			transaction do
-				delete_all(:pref => pref)
+				delete_all(:pref => pref[1])
 				book = Spreadsheet.open(file)
 				sheet = book.worksheet 0
 				sheet.each do |row|
@@ -37,8 +39,8 @@ class AddressGroup < ActiveRecord::Base
 
 	def schedules
 		res = []
-		Schedule.where(:group_number => group_number, :group_code => group_code).includes(:state).each do |s|
-			res << {:effect_at => s.effect_at, :state => s.state.label}
+		schedule_members.each do |s|
+			res << {:date => s.effect_at, :status => s.state}
 		end
 		res
 	end

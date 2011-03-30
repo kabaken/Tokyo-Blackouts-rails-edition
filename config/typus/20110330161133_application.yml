@@ -1,0 +1,17 @@
+# Typus Models Configuration File
+#
+# Use the README file as a reference to customize settings.
+
+ScheduleMember:
+  fields:
+    default: effect_at, group_number, group_code, state
+    form: group_number, group_code, state
+    options:
+      selectors: state
+  relationships: schedule
+  filters: schedule
+  search: 
+  application: TokyoBlackouts
+  options:
+    action_after_save: index
+

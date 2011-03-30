@@ -6,7 +6,7 @@ class SearchController < ApplicationController
 			adds = AddressGroup.find_all_by_address(query)
 			unless(adds.blank?)
 				groups = []
-				adds.each {|add| groups << {:group =>add.group_number, :subgroup => add.group_code, :schedules => add.schedules}}
+				adds.each {|add| groups << {:group =>add.group_number, :subgroup => add.group_code, :status => add.schedules}}
 				res = {:address => adds[0].address, :group => groups}
 				break
 			end

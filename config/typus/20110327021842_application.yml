@@ -4,23 +4,9 @@
 
 Schedule:
   fields:
-    default: effect_at, group_number, group_code, state
-    form: effect_at, group_number, group_code, state
-    options:
-      selectors: group_number, group_code
+    default: effect_at
+    form: effect_at
   order_by: 
-  relationships: state
-  filters: group_number, group_code
+  relationships: schedule_members
   search: 
   application: TokyoBlackouts
-
-State:
-  fields:
-    default: label
-    form: label
-  order_by: 
-  relationships: 
-  filters: 
-  search: 
-  application: TokyoBlackouts
-

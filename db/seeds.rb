@@ -5,4 +5,3 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
-State.create([{:label => '未定'}, {:label => '実施'}, {:label => '中止'}])

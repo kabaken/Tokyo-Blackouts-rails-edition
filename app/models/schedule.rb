@@ -1,8 +1,18 @@
 class Schedule < ActiveRecord::Base
-	belongs_to :state
+	has_many :schedule_members, :dependent => :destroy
 
-	GROUP_NUMBER = [1, 2, 3, 4, 5]
-  validates_inclusion_of :group_number, :in => GROUP_NUMBER
-	GROUP_CODE = %w[A B C D E]
-  validates_inclusion_of :group_code, :in => GROUP_CODE
+	after_create :create_members
+
+	# auto create default members
+	def create_members
+		(1..5).each do |group_number|
+			%w[A B C D E].each do |group_code|
+				ScheduleMember.create(:schedule_id => self.id, :group_number => group_number, :group_code => group_code, :state => '未定')
+			end
+		end
+	end
+
+	def to_label
+		effect_at
+	end
 end
