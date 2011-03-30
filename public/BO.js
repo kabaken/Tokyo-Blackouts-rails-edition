@@ -66,6 +66,8 @@ BO.App = Ext.extend(Ext.TabPanel,{
       scroll: 'vertical',
       html: [
         '<div class="tbteam">',
+					'<h1 class="h2q">Twitter</h1>',
+          '<p class="box"><a href="http://twitter.com/teidengps" target="_blank">@teidengps</a></p>',
           '<h1 class="h2q">Team</h1>',
           '<ul class="rabox">',
             '<li>@bossyooann</li>',
@@ -121,25 +123,16 @@ BO.App = Ext.extend(Ext.TabPanel,{
 	
 		if(count > 0){
 
-			var groups = [], rec = store.getAt(0), 
+			var rec = store.getAt(0), 
 					loc = { latitude: rec.get('latitude'), longitude: rec.get('longitude') },
 					address = rec.get('address');
 
-			store.each(function(rec){
-				groups.push({
-					group: rec.get('group'),
-					subgroup: rec.get('subgroup')
-				});
-			});
-
-			this.onGroupFound(groups, address);
 			this.info.toggleButton();
-//			this.setActiveItem(1);
 
 			function initMap(){
 				map.setLocation(loc);
 				map.addMarker(loc);
-				map.setInfoWindowContent(groups, address);
+				map.findGroup([address]);
 			}
 
 			if(map.isMapReady){
@@ -201,7 +194,8 @@ BO.App = Ext.extend(Ext.TabPanel,{
         today.push({
           group: slot[i].group,
           subgroup: slot[i].subgroup,
-          slot: slot[i].slots[0].slot
+          slot: slot[i].slots[0].slot, // 今日
+          status: slot[i].slots[0].status // 今日
         });
       }
 

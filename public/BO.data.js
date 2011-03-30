@@ -14,10 +14,10 @@ BO.Data = {
     ['栃木県（東京電力、Excel形式）','http://www.tepco.co.jp/images/tochigi.xls','2011/03/25'],
     ['茨城県（現在対象地域無し）','http://www.tepco.co.jp/images/ibaraki.xls','2011/03/25'],
     ['群馬県（東京電力、Excel形式）','http://www.tepco.co.jp/images/gunma.xls','2011/03/25'],
-    ['千葉県（東京電力、Excel形式）','http://www.tepco.co.jp/images/chiba.xls','2011/03/25'],
-    ['神奈川県（東京電力、Excel形式）','http://www.tepco.co.jp/images/kanagawa.xls','2011/03/26'],
-    ['東京都（東京電力、Excel形式）','http://www.tepco.co.jp/images/tokyo.xls','2011/03/26'],
-    ['埼玉県（東京電力、Excel形式）','http://www.tepco.co.jp/images/saitama.xls','2011/03/26'],
+    ['千葉県（東京電力、Excel形式）','http://www.tepco.co.jp/images/chiba.xls','2011/03/27'],
+    ['神奈川県（東京電力、Excel形式）','http://www.tepco.co.jp/images/kanagawa.xls','2011/03/27'],
+    ['東京都（東京電力、Excel形式）','http://www.tepco.co.jp/images/tokyo.xls','2011/03/27'],
+    ['埼玉県（東京電力、Excel形式）','http://www.tepco.co.jp/images/saitama.xls','2011/03/27'],
     ['山梨県（東京電力、Excel形式）','http://www.tepco.co.jp/images/yamanashi.xls','2011/03/25'],
     ['静岡県（東京電力、Excel形式）','http://www.tepco.co.jp/images/numazu.xls','2011/03/26']
   ],
@@ -73,7 +73,7 @@ BO.Data = {
 
     result = result < 0 ? result + this.subgroups.length : result;
 
-    return result < 2 ? slot1 : slot2;
+    return result < 3 ? slot1 : slot2;
   },
 
   getSubDaySlot1: function(group, slot1, slot2, date){
@@ -89,7 +89,7 @@ BO.Data = {
 
 
   getSlot: function(g){
-    var d = new Date(Math.max(new Date(), this.zeroDay)), slots = [], day, slot1, slot2, ret = [];
+    var d = new Date(Math.max(new Date(), this.zeroDay)), slots = [], day, slot1, slot2, ret = [], status;
 
     for(var j=0; j<g.length; j++){
       for(var i=0; i<this.calcCount; i++){
@@ -101,9 +101,20 @@ BO.Data = {
           slot1 = this.getSubDaySlot(g[j], slot1, slot2, day);          
         }
 
+				status = '未定';
+				if(g[j].status){
+					for(var k=0; k<g[j].status.length; k++){
+						if(day.toDateString() === (new Date(g[j].status[k].date)).toDateString()){
+							status = g[j].status[k].status;
+							break;
+						}
+					}
+				}
+
         slots.push({
           day: day,
-          slot: slot1
+          slot: slot1,
+					status: status
         });
       }
       ret.push({

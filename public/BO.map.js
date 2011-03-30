@@ -76,7 +76,7 @@ BO.Map = Ext.extend(Ext.form.FormPanel,{
   },
 
   onLocationUpdate: function(g){
-    this.mask.hide();
+    if(this.mask){ this.mask.hide(); }
     if(!g){ 
       alert('現在地が取得できませんでした。GPSがオフになっていませんか？地図上のピンを指で現在地に動かしてください。'); 
       g = new Ext.util.GeoLocation();
@@ -267,7 +267,7 @@ BO.Map = Ext.extend(Ext.form.FormPanel,{
 
       this.findGroup(queries);
     }else{
-      this.mask.hide();
+			if(this.mask){ this.mask.hide(); }
       alert("住所の取得に失敗しました");
     }
   },
@@ -318,7 +318,7 @@ BO.Map = Ext.extend(Ext.form.FormPanel,{
         query: Ext.encode(q)
       },
       success: function(res){
-        this.mask.hide();
+				if(this.mask){ this.mask.hide(); }
         res = Ext.decode(res.responseText);
         if(res.group && res.group.length>0){
 					this.setInfoWindowContent(res.group, res.address);
@@ -331,7 +331,7 @@ BO.Map = Ext.extend(Ext.form.FormPanel,{
         }
       },
       failure: function(res){
-        this.mask.hide();
+				if(this.mask){ this.mask.hide(); }
         alert("通信エラーです");
       },
       scope: this
