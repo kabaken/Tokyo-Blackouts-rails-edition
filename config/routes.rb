@@ -1,4 +1,4 @@
 Tb::Application.routes.draw do
 	match 'search' => 'search#search'
-	match 'schedules' => 'schedules#index'
+	match 'version' => 'version#index'
 end
