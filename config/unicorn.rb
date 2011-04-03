@@ -1,4 +1,4 @@
-worker_processes 2
+worker_processes 4
 
 listen '/tmp/unicorn.sock'
 
