@@ -21,6 +21,7 @@ BO.Notice = Ext.extend(Ext.Panel, {
 							'<tpl if="status==\'未定\'"><span style="color:gray">未定</span></tpl>',
 							'<tpl if="status==\'実施\'"><span style="color:blue">実施</span></tpl>',
 							'<tpl if="status==\'中止\'"><span style="color:red">中止</span></tpl>',
+//							'<tpl if="status==\'笑顔\'"><span style="color:red">笑顔</span></tpl>',
 						'</li>',
           '</tpl>',
           '</ul>',

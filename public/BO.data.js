@@ -9,17 +9,17 @@ BO.Data = {
   zeroDay2: new Date(2011,2,26),
 
   dataSource: [
-    ['他の検索サイト（ITmedia）','http://www.itmedia.co.jp/news/articles/1103/15/news066.html','2011/03/18'],
     ['計画停電情報（東京電力）','http://www.tepco.co.jp/index-j.html','2011/03/21'],
-    ['栃木県（東京電力、Excel形式）','http://www.tepco.co.jp/images/tochigi.xls','2011/03/25'],
+    ['栃木県（東京電力、Excel形式）','http://www.tepco.co.jp/images/tochigi.xls','2011/03/29'],
     ['茨城県（現在対象地域無し）','http://www.tepco.co.jp/images/ibaraki.xls','2011/03/25'],
-    ['群馬県（東京電力、Excel形式）','http://www.tepco.co.jp/images/gunma.xls','2011/03/25'],
-    ['千葉県（東京電力、Excel形式）','http://www.tepco.co.jp/images/chiba.xls','2011/03/27'],
-    ['神奈川県（東京電力、Excel形式）','http://www.tepco.co.jp/images/kanagawa.xls','2011/03/27'],
-    ['東京都（東京電力、Excel形式）','http://www.tepco.co.jp/images/tokyo.xls','2011/03/27'],
-    ['埼玉県（東京電力、Excel形式）','http://www.tepco.co.jp/images/saitama.xls','2011/03/27'],
-    ['山梨県（東京電力、Excel形式）','http://www.tepco.co.jp/images/yamanashi.xls','2011/03/25'],
-    ['静岡県（東京電力、Excel形式）','http://www.tepco.co.jp/images/numazu.xls','2011/03/26']
+    ['群馬県（東京電力、Excel形式）','http://www.tepco.co.jp/images/gunma.xls','2011/03/29'],
+    ['千葉県（東京電力、Excel形式）','http://www.tepco.co.jp/images/chiba.xls','2011/04/01'],
+    ['神奈川県（東京電力、Excel形式）','http://www.tepco.co.jp/images/kanagawa.xls','2011/03/29'],
+    ['東京都（東京電力、Excel形式）','http://www.tepco.co.jp/images/tokyo.xls','2011/04/01'],
+    ['埼玉県（東京電力、Excel形式）','http://www.tepco.co.jp/images/saitama.xls','2011/04/01'],
+    ['山梨県（東京電力、Excel形式）','http://www.tepco.co.jp/images/yamanashi.xls','2011/03/29'],
+    ['静岡県（東京電力、Excel形式）','http://www.tepco.co.jp/images/numazu.xls','2011/03/29'],
+    ['他の検索サイト（ITmedia）','http://www.itmedia.co.jp/news/articles/1103/15/news066.html','2011/03/18']
   ],
 
   slots: [

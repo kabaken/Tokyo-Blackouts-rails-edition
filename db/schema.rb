@@ -32,6 +32,9 @@ ActiveRecord::Schema.define(:version => 20110330155139) do
 
   create_table "schedules", :force => true do |t|
     t.date     "effect_at"
+    t.integer  "group_number"
+    t.string   "group_code"
+    t.integer  "state_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
