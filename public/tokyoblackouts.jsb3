@@ -1,0 +1,34 @@
+{
+    "projectName": "Tokyo Blackouts",
+    "licenseText": "Copyright(c) 2011 Team Tokyo Blackouts",
+    "packages": [
+        {
+            "name"  : "Tokyo Blackouts",
+            "target": "pkgs/pkg.js",
+            "id"    : "pkg",
+            "files" : [
+                {"path": "./", "name": "BO.mylocation.js"},
+                {"path": "./", "name": "BO.data.js"},
+                {"path": "./", "name": "BO.info.js"},
+                {"path": "./", "name": "BO.source.js"},
+                {"path": "./", "name": "BO.notice.js"},
+                {"path": "./", "name": "BO.map.js"},
+                {"path": "./", "name": "BO.js"},
+                {"path": "./", "name": "app.js"}
+            ]
+        }
+    ],
+    "builds": [
+        {
+            "name": "Tokyo Blackouts",
+            "target": "tokyoblackouts.js",
+            "debug": true,
+				    "options": {
+							"minVersion": 1.1
+						},
+            "packages": [
+                "pkg",
+            ]
+        }
+    ]
+}

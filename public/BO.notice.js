@@ -48,7 +48,8 @@ BO.Notice = Ext.extend(Ext.Panel, {
   },
 
   onClose: function(){
-    this.destroy();
+		this.hide();
+//    this.destroy();
   }
 });
 
