@@ -9,7 +9,7 @@ ScheduleMember:
     options:
       selectors: state, group_number, group_code
   relationships: schedule
-  filters: schedule, group_number, group_code
+  filters: schedule, group_number, group_code, state
   search: 
   application: TokyoBlackouts
   options:
