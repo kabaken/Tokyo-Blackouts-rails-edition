@@ -7,9 +7,9 @@ ScheduleMember:
     default: effect_at, group_number, group_code, state
     form: group_number, group_code, state
     options:
-      selectors: state
+      selectors: state, group_number, group_code
   relationships: schedule
-  filters: schedule
+  filters: schedule, group_number, group_code
   search: 
   application: TokyoBlackouts
   options:
