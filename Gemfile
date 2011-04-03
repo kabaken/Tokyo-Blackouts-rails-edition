@@ -5,7 +5,7 @@ gem 'sqlite3'
 gem 'unicorn'
 gem 'spreadsheet'
 gem 'typus'
+gem 'capistrano'
 
-# gem 'capistrano'
 # gem 'ruby-debug'
 # gem 'nokogiri'
