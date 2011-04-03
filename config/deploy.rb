@@ -23,6 +23,7 @@ set :copy_cache, "/tmp/deploy-cache/Tokyo-Blackouts-rails-edition"
 
 namespace :deploy do
 	task :restart, :roles => :app do
+    run "ln -nfs #{shared_path}/sencha-touch #{release_path}/public/sencha-touch"
 		run "#{try_sudo} /etc/init.d/unicorn upgrade"
 	end
 end
