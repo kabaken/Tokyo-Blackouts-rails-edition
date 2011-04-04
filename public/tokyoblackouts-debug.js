@@ -125,7 +125,8 @@ BO.Data = {
 				status = '未定';
 				if(g[j].status){
 					for(var k=0; k<g[j].status.length; k++){
-						if(day.toDateString() === (new Date(g[j].status[k].date)).toDateString()){
+						// SafariではYY-mm-dd形式がInvalidになるため修正（2011/04/04）
+						if(day.toDateString() === (new Date(g[j].status[k].date.replace(/-/g, "/"))).toDateString()){
 							status = g[j].status[k].status;
 							break;
 						}
